@@ -2,9 +2,14 @@
 import axios from "axios";
 const BASE_URL = "http://13.50.228.186:5000";
 
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDA2YzI4ODZiMzk2Yjc2ZWJiNzM2ZCIsImlhdCI6MTcwODE1ODQwOCwiZXhwIjoxNzA4MjQ0ODA4fQ.aA03kf4_sYzaBGxCgEtHARHlV0FHWu335uuZ3icUQus"
+
 export const client = axios.create({
-  baseURL: BASE_URL
-})
+  baseURL: BASE_URL,
+  headers: {
+    Authorization: `Bearer ${token}`, // Replace with your actual token
+  },
+});
 
 
 // {

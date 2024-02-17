@@ -14,7 +14,8 @@ const Customers = () => {
     queryKey: ["allCustomers"],
     queryFn: async () => {
       return client
-        .get("/api/user?role=customer")
+        .get("/api/user?role=customer", {
+        })
         .then((response: AxiosResponse<customer[], any>) => {
           console.log(response);
           return response.data;
@@ -70,16 +71,16 @@ const Customers = () => {
             content={allCustomers?.map((customer, index) => (
               <tr className="" key={index}>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  {customer.name}
+                  {customer.firstName + " " + customer.lastName}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  {customer.created_At}
+                  {customer.createdAt}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
                   {customer.email}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
-                  {customer.phone}
+                  {customer.phoneNumber}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
                   {customer.state}
@@ -90,7 +91,7 @@ const Customers = () => {
               </tr>
             ))}
           />
-          <PaginationBar apiResponse={DummyCustomers} />
+          {/* <PaginationBar apiResponse={allCustomers !== undefined && allCustom} /> */}
         </div>
       </section>
     </>
