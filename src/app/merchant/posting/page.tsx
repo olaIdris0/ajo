@@ -17,7 +17,7 @@ const Posting = () => {
     "form",
   );
   const [postingResponse, setPostingResponse] = useState<postSavingsResponse>();
-  console.log(postingResponse);
+  console.log("postingResponse: ",postingResponse);
 
   // const DummyCustomers: (typeof postDetails)[] = [];
 
@@ -28,7 +28,7 @@ const Posting = () => {
       return client
         .get("/api/user?role=customer", {})
         .then((response: AxiosResponse<customer[], any>) => {
-          console.log(response.data);
+          console.log("allCustomersSuccess: ", response.data);
           return response.data;
         })
         .catch((error: AxiosError<any, any>) => {
