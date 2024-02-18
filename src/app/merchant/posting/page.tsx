@@ -105,7 +105,7 @@ const Posting = () => {
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
                   {/* {customer.transaction_id || "----"} */}
-                  {customer._id || "----"}
+                  {customer._id || "-----"}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
                   {customer.email}
