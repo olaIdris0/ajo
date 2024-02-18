@@ -23,15 +23,16 @@ const Posting = () => {
 
   const { data: allCustomers, isLoading: isLoadingAllCustomers } = useQuery({
     queryKey: ["allCustomers"],
+    staleTime: 5000,
     queryFn: async () => {
       return client
         .get("/api/user?role=customer", {})
         .then((response: AxiosResponse<customer[], any>) => {
-          console.log(response);
+          console.log(response.data);
           return response.data;
         })
         .catch((error: AxiosError<any, any>) => {
-          console.log(error);
+          console.log(error.response);
         });
     },
   });
