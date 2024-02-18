@@ -105,6 +105,7 @@ const Posting = () => {
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
                   {customer.transaction_id || "----"}
+                  {customer._id || "----"}
                 </td>
                 <td className="whitespace-nowrap px-6 py-4 text-sm">
                   {customer.email}
@@ -461,12 +462,14 @@ const PostConfirmation = ({
 
   const postingStartDate: string | undefined = Date();
   const formattedPostingStartDate = new Date(postingStartDate);
-  const formattedStartDate = formattedPostingStartDate.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-
+  const formattedStartDate = formattedPostingStartDate.toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    },
+  );
 
   const postingEndDate: string | undefined = Date();
   const formattedPostingEndDate = new Date(postingEndDate);
